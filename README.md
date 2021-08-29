@@ -7,14 +7,7 @@ Track your WaniKani progress and defeat your enemies.
 ## Tutorial  
 See [this useful workshop](https://cdkworkshop.com/20-typescript.html) on working with the AWS CDK for Typescript projects.
 
-Authorization Header:
-` Secret {secret}`
-
 ## Deploying
-Create a `.env` file in the root directory of the project with the following contents:
-```
-SECRET_WRITE_KEY=<some-secret-string>
-```
 Then run `yarn build && yarn deploy`.
 
 ## Useful commands
