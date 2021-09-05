@@ -3,11 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import { Metric } from './model/Metric';
 import * as repository from './repository';
 
-exports.handler = async function (
-  event: APIGatewayProxyEventV2,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _context: Context
-): Promise<APIGatewayProxyResultV2> {
+exports.handler = async function (event: APIGatewayProxyEventV2, context: Context): Promise<APIGatewayProxyResultV2> {
   try {
     switch (event.routeKey) {
       case 'GET /metrics':

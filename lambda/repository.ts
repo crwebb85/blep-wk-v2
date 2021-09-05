@@ -6,9 +6,9 @@ import { MetricEntity } from './db/MetricEntity';
  * @param apiKey
  * @returns {Promise<PromiseResult<*, E>>}
  */
-export async function addApiKey(apiKey: string): Promise<undefined> {
-  //TODO and change return type
-  return undefined;
+export async function addApiKey(apiKey: string): Promise<void> {
+  //TODO
+  return;
 }
 
 /**
