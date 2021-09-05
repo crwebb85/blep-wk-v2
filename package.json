@@ -8,13 +8,21 @@
     "build": "tsc  && cdk synth",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "lint": "eslint . --ignore-path .gitignore --ext .ts",
+    "prettier-format": "prettier --config .prettierrc --ignore-path .gitignore --write ."
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
     "@types/node": "14.14.31",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
     "aws-cdk": "^1.120.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.1.0",
+    "prettier": "^2.3.2",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
     "typescript": "~4.4.2"
@@ -22,6 +30,7 @@
   "dependencies": {
     "@types/aws-lambda": "^8.10.83",
     "constructs": "^3.3.69",
+    "http-status-codes": "^2.1.4",
     "monocdk": "^1.120.0"
   },
   "peerDependencies": {
