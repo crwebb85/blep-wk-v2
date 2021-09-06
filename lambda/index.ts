@@ -26,8 +26,10 @@ exports.handler = async function (event: APIGatewayProxyEventV2, context: Contex
           'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
         },
       } as APIGatewayProxyResultV2;
-    } else {
+    } else if (err instanceof Error) {
       throw new Error('Internal service error: ' + err.stack);
+    } else {
+      throw new Error('Internal service error.');
     }
   }
 };
