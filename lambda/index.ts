@@ -1,5 +1,6 @@
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2, Context } from 'aws-lambda';
-import { StatusCodes } from 'http-status-codes';
+import { ClientError } from './errors';
+import { ErrorResponse } from './model/ErrorResponse';
 import { Metric } from './model/Metric';
 import * as repository from './repository';
 
@@ -12,15 +13,22 @@ exports.handler = async function (event: APIGatewayProxyEventV2, context: Contex
         throw new Error(`Unknown route: ${event.routeKey}`);
     }
   } catch (err) {
-    return {
-      statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
-      body: 'Oops something went wrong.',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
-      },
-    } as APIGatewayProxyResultV2;
+    if (err instanceof ClientError) {
+      return {
+        statusCode: err.httpStatusCode,
+        body: JSON.stringify({
+          error: err.name,
+          message: err.message,
+        } as ErrorResponse),
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'Content-Type',
+          'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
+        },
+      } as APIGatewayProxyResultV2;
+    } else {
+      throw new Error('Internal service error: ' + err.stack);
+    }
   }
 };
 
@@ -49,7 +57,7 @@ async function getMetricsHandler(event: APIGatewayProxyEventV2): Promise<APIGate
   let metrics = await Promise.all(metricPromises);
   metrics = metrics.filter((x) => x); // filter out undefined values
   return {
-    statusCode: StatusCodes.OK,
+    statusCode: 200,
     body: JSON.stringify(metrics),
     headers: {
       'Access-Control-Allow-Origin': '*',

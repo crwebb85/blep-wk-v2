@@ -1,4 +1,5 @@
 import { MetricEntity } from './db/MetricEntity';
+import { UnimplementedAPIError } from './errors';
 
 /**
  * Adds a WaniKani API key to the database if it does not already exist. The data field will be replaced by the
@@ -8,7 +9,7 @@ import { MetricEntity } from './db/MetricEntity';
  */
 export async function addApiKey(apiKey: string): Promise<void> {
   //TODO
-  return;
+  throw new UnimplementedAPIError('API under construction');
 }
 
 /**
@@ -17,7 +18,7 @@ export async function addApiKey(apiKey: string): Promise<void> {
  */
 export async function getAllApiKeys(): Promise<string[] | undefined> {
   //TODO
-  return undefined;
+  throw new UnimplementedAPIError('API under construction');
 }
 
 /**
@@ -27,7 +28,7 @@ export async function getAllApiKeys(): Promise<string[] | undefined> {
  */
 export async function getUserID(apiKey: string): Promise<string | undefined> {
   //TODO
-  return '';
+  throw new UnimplementedAPIError('API under construction');
 }
 
 /**
@@ -40,5 +41,5 @@ export async function getUserID(apiKey: string): Promise<string | undefined> {
  */
 export async function getMetrics(userID: string, startDate: Date, endDate: Date | undefined): Promise<MetricEntity[]> {
   //TODO
-  return [{} as MetricEntity];
+  throw new UnimplementedAPIError('API under construction');
 }
