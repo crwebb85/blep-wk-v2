@@ -30,7 +30,6 @@
   "dependencies": {
     "@types/aws-lambda": "^8.10.83",
     "constructs": "^3.3.69",
-    "http-status-codes": "^2.1.4",
     "monocdk": "^1.120.0"
   },
   "peerDependencies": {
