@@ -11,7 +11,7 @@ export class BlepWkV2Stack extends cdk.Stack {
     const apiLambda = new NodejsFunction(this, 'Lambda-API', {
       runtime: Runtime.NODEJS_14_X,
       memorySize: 128,
-      entry: path.join(__dirname, '../lambda/index.ts'),
+      entry: path.join(__dirname, 'lambda/index.ts'),
       handler: 'handler',
       logRetention: 90,
     });
