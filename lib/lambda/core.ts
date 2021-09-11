@@ -2,10 +2,10 @@ import * as repository from '@lambda/repository';
 import { GetMetricsRequest, Metric } from './models';
 
 /**
- * Intended to get the metrics for each of the Wani Kani api keys.
+ * Intended to get the metrics for each of the Wani Kani API keys.
  * Side Effect: Persists unknown API keys so that another lambda can start tracking metrics for the user.
  * @param request.wkApiKeys the list of Wani Kani API keys.
- * @returns the latest metrics for the list of api keys.
+ * @returns the latest metrics for the list of API keys.
  */
 export async function getMetrics(request: GetMetricsRequest): Promise<Metric[]> {
   const apiKeys = request.wkApiKeys;
