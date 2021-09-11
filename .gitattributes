@@ -1,0 +1,8 @@
+*.css     text eol=lf
+*.html    text eol=lf
+*.js      text eol=lf
+*.json    text eol=lf
+*.gitignore text eol=lf
+*.npmignore text eol=lf
+yarn.lock text eol=lf
+*.gitattributes text eol=lf

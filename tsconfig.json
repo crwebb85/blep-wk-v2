@@ -18,7 +18,11 @@
     "inlineSources": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": ["./node_modules/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "@lambda/*":["lib/lambda/*"]
+    }
   },
   "exclude": ["node_modules", "cdk.out", "build"]
 }

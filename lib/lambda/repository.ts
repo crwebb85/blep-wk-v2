@@ -1,5 +1,5 @@
-import { MetricEntity } from './db/MetricEntity';
-import { UnimplementedAPIError } from './errors';
+import { MetricEntity } from '@lambda/entities';
+import { UnimplementedAPIError } from '@lambda/errors';
 
 /**
  * Adds a WaniKani API key to the database if it does not already exist. The data field will be replaced by the
