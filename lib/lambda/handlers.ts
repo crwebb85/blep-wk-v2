@@ -9,7 +9,7 @@ import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 export async function getMetricsHandler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyResultV2> {
   const request = validateGetMetricsHandlerRequest(event);
 
-  const metrics = await service.getMetrics(request); // filter out undefined values
+  const metrics = await service.getMetrics(request);
 
   const response: GetMetricsResponse = {
     metrics: metrics,
