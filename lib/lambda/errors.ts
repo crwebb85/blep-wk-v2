@@ -41,7 +41,7 @@ export class MethodNotAllowedError extends ClientError {
 }
 
 export class UnimplementedAPIError extends MethodNotAllowedError {
-  constructor(msg: string) {
+  constructor(msg = 'API under construction') {
     super(msg);
   }
 }

@@ -19,8 +19,7 @@ export async function getMetrics(request: GetMetricsRequest): Promise<Metric[]> 
   });
 
   const unfilteredMetrics = await Promise.all(metricPromises);
-  const metrics = unfilteredMetrics.flatMap((f) => (f ? [f] : [])); // filter out undefined values in typesafe way
-  return metrics;
+  return unfilteredMetrics.flatMap((f) => (f ? [f] : [])); // filter out undefined values in typesafe way
 }
 
 /**

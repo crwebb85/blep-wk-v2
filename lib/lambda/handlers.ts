@@ -1,6 +1,7 @@
 import * as service from '@lambda/core';
 import { GetMetricsRequest, GetMetricsResponse } from '@lambda/models';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
+
 /**
  * The handler for fetching the metrics for the list of WaniKani API keys.
  * @param event
