@@ -10,8 +10,8 @@
     "plugin:sonarjs/recommended"
   ],
   "rules": {
-    "prettier/prettier": 2, // Means error
-    "@typescript-eslint/no-unused-vars": 0,
-    "sonarjs/no-small-switch": 0
+    "prettier/prettier": ["error"],
+    "@typescript-eslint/no-unused-vars": ["off"],
+    "sonarjs/no-small-switch": ["off"]
   }
 }
