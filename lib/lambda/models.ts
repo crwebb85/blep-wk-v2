@@ -24,6 +24,7 @@ export interface Metric {
 }
 
 type NumberOfSRSStages = 10;
+
 export interface SRSAggregate {
   total: SRSStageCounts<NumberOfSRSStages>;
   radical: SRSStageCounts<NumberOfSRSStages>;
