@@ -16,7 +16,7 @@ test('Path parameters should be parsed into a GetMetricsRequest', () => {
   expect(validateGetMetricsHandlerRequest(event)).toStrictEqual(expectedGetMetricsRequest);
 });
 
-test('Must throw ValidationError if the parameter ```users``` is empty', () => {
+test('Must throw ValidationError if the parameter `users` is empty', () => {
   const pathParameters = { users: '' } as APIGatewayProxyEventPathParameters;
   const event = { pathParameters: pathParameters } as APIGatewayProxyEventV2;
 
