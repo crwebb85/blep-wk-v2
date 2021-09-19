@@ -38,7 +38,12 @@ async function fetchLatestMetric(userID: string): Promise<Metric | undefined> {
     availableReviewCount: metricEntity.availableReviewCount,
     currentLevel: metricEntity.currentLevel,
     hoursIn: metricEntity.hoursIn,
-    srsLevels: metricEntity.srsLevels,
+    srsLevels: {
+      total: metricEntity.srsLevels.total,
+      radical: metricEntity.srsLevels.radical,
+      kanji: metricEntity.srsLevels.kanji,
+      vocabulary: metricEntity.srsLevels.vocabulary,
+    },
     username: metricEntity.username,
   } as Metric;
 }

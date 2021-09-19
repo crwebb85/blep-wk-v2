@@ -3,6 +3,8 @@
     "target": "es2020",
     "module": "commonjs",
     "lib": ["es2020"],
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "outDir": "build",
     "declaration": true,
     "strict": true,

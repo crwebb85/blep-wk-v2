@@ -1,5 +1,6 @@
 import * as service from '@lambda/core';
-import { GetMetricsRequest, GetMetricsResponse } from '@lambda/models';
+import * as validators from '@lambda/validators';
+import { GetMetricsResponse } from '@lambda/models';
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
 
 /**
@@ -8,7 +9,7 @@ import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
  * @returns The APIGatewayProxyEventV2 with the list of metrics
  */
 export async function getMetricsHandler(event: APIGatewayProxyEventV2): Promise<APIGatewayProxyResultV2> {
-  const request = validateGetMetricsHandlerRequest(event);
+  const request = validators.validateGetMetricsHandlerRequest(event);
 
   const metrics = await service.getMetrics(request);
 
@@ -25,22 +26,4 @@ export async function getMetricsHandler(event: APIGatewayProxyEventV2): Promise<
       'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
     },
   } as APIGatewayProxyResultV2;
-}
-
-/**
- * Validates and parses the request parameters.
- * @param event
- * @returns the API keys from the request parameters
- */
-function validateGetMetricsHandlerRequest(event: APIGatewayProxyEventV2): GetMetricsRequest {
-  if (!event.pathParameters || !event.pathParameters['users']) {
-    throw new Error('Users are missing.');
-  }
-  const apiKeysStr = event.pathParameters['users'];
-
-  const apiKeys = apiKeysStr.split(',');
-
-  return {
-    wkApiKeys: apiKeys,
-  };
 }

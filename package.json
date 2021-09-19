@@ -7,10 +7,13 @@
   "scripts": {
     "build": "tsc  && cdk synth",
     "watch": "tsc -w",
-    "test": "jest",
+    "test:unit": "jest --coverage",
+    "test:e2e": "jest -c jest.integration.config.ts --passWithNoTests",
+    "test:viewer": "yarn open-cli ./coverage/lcov-report/index.html",
+    "test": "yarn test:unit && yarn test:e2e",
     "cdk": "cdk",
     "lint": "eslint . --ignore-path .gitignore --ext .ts",
-    "prettier-format": "prettier --config .prettierrc --ignore-path .gitignore --write ."
+    "format": "prettier --config .prettierrc --ignore-path .gitignore --write ."
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
@@ -22,7 +25,9 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-sonarjs": "^0.10.0",
+    "eslint-plugin-unused-imports": "^1.1.4",
     "jest": "^27.1.0",
+    "open-cli": "^7.0.1",
     "prettier": "^2.3.2",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",

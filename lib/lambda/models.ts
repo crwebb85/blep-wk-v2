@@ -14,11 +14,24 @@ export interface GetMetricsResponse {
 
 //Business Layer
 
-export type Metric = {
+export interface Metric {
   updatedAt: Date;
   availableReviewCount?: number;
   currentLevel?: number;
   hoursIn: number;
-  srsLevels: number;
+  srsLevels: SRSAggregate;
   username: string;
-};
+}
+
+type NumberOfSRSStages = 10;
+export interface SRSAggregate {
+  total: SRSStageCounts<NumberOfSRSStages>;
+  radical: SRSStageCounts<NumberOfSRSStages>;
+  kanji: SRSStageCounts<NumberOfSRSStages>;
+  vocabulary: SRSStageCounts<NumberOfSRSStages>;
+}
+
+export interface SRSStageCounts<L extends number> extends Array<number> {
+  0: number;
+  length: L;
+}
