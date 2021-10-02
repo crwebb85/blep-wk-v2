@@ -1,9 +1,11 @@
 import * as handlers from '@lambda/handlers';
+
 import { APIGatewayProxyEventV2, Context } from 'aws-lambda';
-import { mocked } from 'ts-jest/utils';
+
+import { ErrorResponse } from '@lambda/models';
 import { ValidationError } from '@lambda/errors';
 import { handler } from '@lambda/index';
-import { ErrorResponse } from '@lambda/models';
+import { mocked } from 'ts-jest/utils';
 
 jest.mock('@lambda/handlers');
 
@@ -29,12 +31,14 @@ test('Validation errors should be sent to the client.', () => {
     throw clientError;
   });
 
+  const errorResponse: ErrorResponse = {
+    error: clientError.name,
+    message: clientError.message,
+  };
+
   const expectedResponse = {
     statusCode: clientError.httpStatusCode,
-    body: JSON.stringify({
-      error: clientError.name,
-      message: clientError.message,
-    } as ErrorResponse),
+    body: JSON.stringify(errorResponse),
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': 'Content-Type',

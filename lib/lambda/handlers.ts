@@ -1,7 +1,9 @@
 import * as service from '@lambda/core';
 import * as validators from '@lambda/validators';
-import { GetMetricsResponse } from '@lambda/models';
+
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
+
+import { GetMetricsResponse } from '@lambda/models';
 
 /**
  * The handler for fetching the metrics for the list of WaniKani API keys.
@@ -25,5 +27,5 @@ export async function getMetricsHandler(event: APIGatewayProxyEventV2): Promise<
       'Access-Control-Allow-Headers': 'Content-Type',
       'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
     },
-  } as APIGatewayProxyResultV2;
+  };
 }

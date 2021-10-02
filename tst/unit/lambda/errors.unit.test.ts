@@ -28,7 +28,7 @@ test('MethodNotAllowedError constructor', () => {
   const message = 'Ooh no you encountered a wild MethodNotAllowedError.';
   const error = new MethodNotAllowedError(message);
   expect(error.message).toBe(message);
-  expect(error.httpStatusCode).toBe(501);
+  expect(error.httpStatusCode).toBe(405);
   expect(error.name).toBe('MethodNotAllowedError');
 });
 

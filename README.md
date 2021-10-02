@@ -19,7 +19,7 @@ Then run `yarn build && yarn deploy`.
 - `yarn watch` watch for changes and compile
 - `yarn test` perform the jest unit tests
 - `yarn test:unit` runs the unit tests and checks code coverage
-- `yarn test:e2e` runs the integration tests
+- `yarn test:integ` runs the integration tests
 - `yarn test:viewer` opens the code coverage viewer in the browser
 - `yarn cdk deploy` deploy this stack to your default AWS account/region
 - `yarn cdk diff` compare deployed stack with current state

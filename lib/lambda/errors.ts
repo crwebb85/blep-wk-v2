@@ -36,7 +36,7 @@ export class MethodNotAllowedError extends ClientError {
   constructor(msg: string) {
     super(msg);
     this.name = 'MethodNotAllowedError';
-    this.httpStatusCode = 501;
+    this.httpStatusCode = 405;
   }
 }
 

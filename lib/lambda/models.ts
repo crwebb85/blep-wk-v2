@@ -14,25 +14,31 @@ export interface GetMetricsResponse {
 
 //Business Layer
 
-export interface Metric {
+interface MetricUnknown {
+  wkApiKey: string;
+  username?: string;
+}
+
+interface MetricRecord {
+  wkApiKey: string;
+  username: string;
   updatedAt: Date;
   availableReviewCount?: number;
   currentLevel?: number;
   hoursIn: number;
-  srsLevels: SRSAggregate;
-  username: string;
+  srsLevels: ItemAggregate;
 }
 
-type NumberOfSRSStages = 10;
+export type Metric = MetricRecord | MetricUnknown;
 
-export interface SRSAggregate {
-  total: SRSStageCounts<NumberOfSRSStages>;
-  radical: SRSStageCounts<NumberOfSRSStages>;
-  kanji: SRSStageCounts<NumberOfSRSStages>;
-  vocabulary: SRSStageCounts<NumberOfSRSStages>;
+export interface ItemAggregate {
+  total: SrsStageCounts<SrsStageCount>;
+  radical: SrsStageCounts<SrsStageCount>;
+  kanji: SrsStageCounts<SrsStageCount>;
+  vocabulary: SrsStageCounts<SrsStageCount>;
 }
 
-export interface SRSStageCounts<L extends number> extends Array<number> {
-  0: number;
+type SrsStageCount = 10;
+export class SrsStageCounts<L extends number> extends Array<number> {
   length: L;
 }

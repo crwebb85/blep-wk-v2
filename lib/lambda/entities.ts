@@ -3,20 +3,20 @@ export type MetricEntity = {
   availableReviewCount?: number;
   currentLevel?: number;
   hoursIn: number;
-  srsLevels: SRSAggregateEntity;
+  srsLevels: ItemAggregateEntity;
   username: string;
 };
 
-type NumberOfSRSStages = 10;
+type SrsStageCount = 10;
 
-export interface SRSAggregateEntity {
-  total: SRSStageCountsEntity<NumberOfSRSStages>;
-  radical: SRSStageCountsEntity<NumberOfSRSStages>;
-  kanji: SRSStageCountsEntity<NumberOfSRSStages>;
-  vocabulary: SRSStageCountsEntity<NumberOfSRSStages>;
+export interface ItemAggregateEntity {
+  total: SrsStageCountsEntity<SrsStageCount>;
+  radical: SrsStageCountsEntity<SrsStageCount>;
+  kanji: SrsStageCountsEntity<SrsStageCount>;
+  vocabulary: SrsStageCountsEntity<SrsStageCount>;
 }
 
-export interface SRSStageCountsEntity<L extends number> extends Array<number> {
+export interface SrsStageCountsEntity<L extends number> extends Array<number> {
   0: number;
   length: L;
 }

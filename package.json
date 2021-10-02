@@ -8,9 +8,9 @@
     "build": "tsc  && cdk synth",
     "watch": "tsc -w",
     "test:unit": "jest --coverage",
-    "test:e2e": "jest -c jest.integration.config.ts --passWithNoTests",
+    "test:integ": "jest -c jest.integration.config.ts --passWithNoTests",
     "test:viewer": "yarn open-cli ./coverage/lcov-report/index.html",
-    "test": "yarn test:unit && yarn test:e2e",
+    "test": "yarn test:unit && yarn test:integ",
     "cdk": "cdk",
     "lint": "eslint . --ignore-path .gitignore --ext .ts",
     "format": "prettier --config .prettierrc --ignore-path .gitignore --write ."
