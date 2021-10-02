@@ -17,6 +17,5 @@ export interface ItemAggregateEntity {
 }
 
 export interface SrsStageCountsEntity<L extends number> extends Array<number> {
-  0: number;
   length: L;
 }
