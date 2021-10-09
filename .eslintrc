@@ -1,10 +1,23 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier"],
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint", "prettier", "sonarjs", "unused-imports"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:sonarjs/recommended"
+  ],
   "rules": {
-    "prettier/prettier": 2, // Means error
-    "@typescript-eslint/no-unused-vars": 0
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-unused-vars": "off",
+    "sonarjs/no-small-switch": "off",
+    "unused-imports/no-unused-imports": "error",
+    "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    "@typescript-eslint/consistent-type-assertions": "error"
   }
 }

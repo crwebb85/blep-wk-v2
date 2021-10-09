@@ -1,7 +1,9 @@
-import { ClientError } from '@lambda/errors';
 import * as handlers from '@lambda/handlers';
-import { ErrorResponse } from '@lambda/models';
+
 import { APIGatewayProxyEventV2, APIGatewayProxyResultV2, Context } from 'aws-lambda';
+
+import { ClientError } from '@lambda/errors';
+import { ErrorResponse } from '@lambda/models';
 
 /**
  * The entry point for the API.
@@ -20,8 +22,8 @@ export async function handler(event: APIGatewayProxyEventV2, context: Context): 
   } catch (err) {
     if (err instanceof ClientError) {
       return prepareClientErrorResponse(err);
-    } else if (err instanceof Error) {
-      throw new Error('Internal service error: ' + err.stack);
+    } else if (err instanceof Error && err.stack) {
+      throw new Error('Internal service error: ' + err.stack.toString());
     } else {
       throw new Error('Internal service error.');
     }
@@ -34,12 +36,13 @@ export async function handler(event: APIGatewayProxyEventV2, context: Context): 
  * @returns The API Gateway response for the error that will be exposed to the client.
  */
 function prepareClientErrorResponse(clientError: ClientError): APIGatewayProxyResultV2 | PromiseLike<APIGatewayProxyResultV2> {
+  const errorResponse: ErrorResponse = {
+    error: clientError.name,
+    message: clientError.message,
+  };
   return {
     statusCode: clientError.httpStatusCode,
-    body: JSON.stringify({
-      error: clientError.name,
-      message: clientError.message,
-    } as ErrorResponse),
+    body: JSON.stringify(errorResponse),
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': 'Content-Type',

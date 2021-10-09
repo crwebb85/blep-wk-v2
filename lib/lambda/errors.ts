@@ -35,13 +35,13 @@ export class ValidationError extends ClientError {
 export class MethodNotAllowedError extends ClientError {
   constructor(msg: string) {
     super(msg);
-    this.name = 'API under construction. Please Try again.';
-    this.httpStatusCode = 501;
+    this.name = 'MethodNotAllowedError';
+    this.httpStatusCode = 405;
   }
 }
 
-export class UnimplementedAPIError extends MethodNotAllowedError {
-  constructor(msg: string) {
+export class UnimplementedAPIError extends ForbiddenError {
+  constructor(msg = 'API under construction') {
     super(msg);
   }
 }

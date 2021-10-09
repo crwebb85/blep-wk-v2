@@ -9,7 +9,7 @@ import { UnimplementedAPIError } from '@lambda/errors';
  */
 export async function addApiKey(apiKey: string): Promise<void> {
   //TODO
-  throw new UnimplementedAPIError('API under construction');
+  throw new UnimplementedAPIError();
 }
 
 /**
@@ -18,7 +18,7 @@ export async function addApiKey(apiKey: string): Promise<void> {
  */
 export async function getAllApiKeys(): Promise<string[] | undefined> {
   //TODO
-  throw new UnimplementedAPIError('API under construction');
+  throw new UnimplementedAPIError();
 }
 
 /**
@@ -28,7 +28,7 @@ export async function getAllApiKeys(): Promise<string[] | undefined> {
  */
 export async function getUserID(apiKey: string): Promise<string | undefined> {
   //TODO
-  throw new UnimplementedAPIError('API under construction');
+  throw new UnimplementedAPIError();
 }
 
 /**
@@ -41,5 +41,5 @@ export async function getUserID(apiKey: string): Promise<string | undefined> {
  */
 export async function getMetrics(userID: string, startDate: Date, endDate: Date | undefined): Promise<MetricEntity[]> {
   //TODO
-  throw new UnimplementedAPIError('API under construction');
+  throw new UnimplementedAPIError();
 }

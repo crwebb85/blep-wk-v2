@@ -18,8 +18,12 @@ Then run `yarn build && yarn deploy`.
 - `yarn build` compile typescript to js and create synth stack
 - `yarn watch` watch for changes and compile
 - `yarn test` perform the jest unit tests
+- `yarn test:unit` runs the unit tests and checks code coverage
+- `yarn test:integ` runs the integration tests
+- `yarn test:viewer` opens the code coverage viewer in the browser
 - `yarn cdk deploy` deploy this stack to your default AWS account/region
 - `yarn cdk diff` compare deployed stack with current state
 - `yarn cdk synth` emits the synthesized CloudFormation template
 - `yarn lint` lints the project
-- `yarn prettier-format` formats the project (Intended to be used only when need. You should configure your IDE/Editor to format each file on save so that you don't need this.)
+- `yarn format` formats the project (Intended to be used only when need. You should configure your IDE/Editor to format each file on save so that you don't need this.)
+
