@@ -16,7 +16,7 @@ test('Metric Handler should return a list of metrics as an APIGatewayProxyResult
 
   const metric1: Metric = {
     wkApiKey: apiKey1,
-    updatedAt: new Date(),
+    updatedAt: new Date().getTime(),
     availableReviewCount: 900,
     currentLevel: 10,
     hoursIn: 500,
@@ -31,7 +31,7 @@ test('Metric Handler should return a list of metrics as an APIGatewayProxyResult
 
   const metric2: Metric = {
     wkApiKey: apiKey2,
-    updatedAt: new Date(),
+    updatedAt: new Date().getTime(),
     availableReviewCount: 900,
     currentLevel: 10,
     hoursIn: 400,

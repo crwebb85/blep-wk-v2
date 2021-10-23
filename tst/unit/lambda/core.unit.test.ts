@@ -18,7 +18,7 @@ test('For each of the API keys, getMetrics should return the most recent metric 
   const username1 = 'Muppet1';
   const metric1: Metric = {
     wkApiKey: apiKey1,
-    updatedAt: new Date(),
+    updatedAt: new Date().getTime(),
     availableReviewCount: 900,
     currentLevel: 10,
     hoursIn: 500,
@@ -34,7 +34,7 @@ test('For each of the API keys, getMetrics should return the most recent metric 
   const username2 = 'Muppet2';
   const metric2: Metric = {
     wkApiKey: apiKey2,
-    updatedAt: new Date(),
+    updatedAt: new Date().getTime(),
     availableReviewCount: 900,
     currentLevel: 10,
     hoursIn: 400,

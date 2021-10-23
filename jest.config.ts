@@ -2,7 +2,6 @@ import { compilerOptions } from './tsconfig.json';
 import { pathsToModuleNameMapper } from 'ts-jest/utils';
 
 module.exports = {
-  //testEnvironment: 'node',
   testEnvironment: 'jest-dynalite/environment',
   roots: ['<rootDir>/tst/unit'],
   testMatch: ['**/*.unit.test.ts'],
