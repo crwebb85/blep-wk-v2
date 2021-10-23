@@ -1,8 +1,9 @@
-import { pathsToModuleNameMapper } from 'ts-jest/utils';
 import { compilerOptions } from './tsconfig.json';
+import { pathsToModuleNameMapper } from 'ts-jest/utils';
 
 module.exports = {
-  testEnvironment: 'node',
+  //testEnvironment: 'node',
+  testEnvironment: 'jest-dynalite/environment',
   roots: ['<rootDir>/tst/unit'],
   testMatch: ['**/*.unit.test.ts'],
   transform: {
@@ -23,4 +24,5 @@ module.exports = {
       lines: 100,
     },
   },
+  setupFilesAfterEnv: ['jest-dynalite/setupTables', 'jest-dynalite/clearAfterEach'],
 };

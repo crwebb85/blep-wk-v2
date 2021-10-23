@@ -48,9 +48,9 @@ test('For each of the API keys, getMetrics should return the most recent metric 
   };
 
   const mockedRepository = mocked(repository, true);
-  mockedRepository.getUserID = jest.fn().mockResolvedValueOnce(username1).mockResolvedValueOnce(username2);
+  mockedRepository.findUserIdByApiKey = jest.fn().mockResolvedValueOnce(username1).mockResolvedValueOnce(username2);
 
-  mockedRepository.getMetrics = jest.fn().mockResolvedValueOnce([metric1]).mockResolvedValueOnce([metric2]);
+  mockedRepository.findMetrics = jest.fn().mockResolvedValueOnce([metric1]).mockResolvedValueOnce([metric2]);
 
   const expectedResponse = [metric1, metric2];
 
@@ -70,11 +70,11 @@ test('Unknown API keys will add the API key to the repository, and the returned 
   };
 
   const mockedRepository = mocked(repository, true);
-  mockedRepository.getUserID = jest.fn().mockResolvedValueOnce(username1);
-  mockedRepository.addApiKey = jest.fn().mockImplementation(async () => {
+  mockedRepository.findUserIdByApiKey = jest.fn().mockResolvedValueOnce(username1);
+  mockedRepository.saveApiKey = jest.fn().mockImplementation(async () => {
     return;
   });
-  mockedRepository.getMetrics = jest.fn().mockResolvedValueOnce([metric1]);
+  mockedRepository.findMetrics = jest.fn().mockResolvedValueOnce([metric1]);
 
   const expectedResponse = [metric1];
 
@@ -96,8 +96,8 @@ test('If the repository cannot find a metric for the user, then the returned met
   };
 
   const mockedRepository = mocked(repository, true);
-  mockedRepository.getUserID = jest.fn().mockResolvedValueOnce(username1);
-  mockedRepository.getMetrics = jest.fn().mockResolvedValueOnce([]);
+  mockedRepository.findUserIdByApiKey = jest.fn().mockResolvedValueOnce(username1);
+  mockedRepository.findMetrics = jest.fn().mockResolvedValueOnce([]);
 
   const expectedResponse = [metric1];
 

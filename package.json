@@ -27,6 +27,7 @@
     "eslint-plugin-sonarjs": "^0.10.0",
     "eslint-plugin-unused-imports": "^1.1.4",
     "jest": "^27.1.0",
+    "jest-dynalite": "^3.4.4",
     "open-cli": "^7.0.1",
     "prettier": "^2.3.2",
     "ts-jest": "^27.0.5",
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "@types/aws-lambda": "^8.10.83",
+    "aws-sdk": "^2.1009.0",
     "constructs": "^3.3.69",
     "monocdk": "^1.120.0"
   },

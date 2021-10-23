@@ -1,11 +1,13 @@
 export type MetricEntity = {
-  updatedAt: Date;
+  updatedAt: UnixTimestamp;
   availableReviewCount?: number;
   currentLevel?: number;
   hoursIn: number;
   srsLevels: ItemAggregateEntity;
   username: string;
 };
+
+export type UnixTimestamp = number;
 
 type SrsStageCount = 10;
 

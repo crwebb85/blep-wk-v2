@@ -23,9 +23,9 @@ export async function getMetrics(request: GetMetricsRequest): Promise<Metric[]> 
  * @returns
  */
 async function fetchMetric(wkApiKey: string) {
-  const userID = await repository.getUserID(wkApiKey);
+  const userID = await repository.findUserIdByApiKey(wkApiKey);
   if (!userID) {
-    await repository.addApiKey(wkApiKey);
+    await repository.saveApiKey(wkApiKey);
     return {
       wkApiKey: wkApiKey,
     };
@@ -46,7 +46,7 @@ async function fetchMetric(wkApiKey: string) {
  * @returns the current day's latest `MetricEntity` for the user.
  */
 async function fetchTodaysLatestMetricEntity(userID: string): Promise<MetricEntity | undefined> {
-  const metricEntities = await repository.getMetrics(userID, new Date(), undefined);
+  const metricEntities = await repository.findMetrics(userID, new Date(), undefined);
   return metricEntities.pop();
 }
 

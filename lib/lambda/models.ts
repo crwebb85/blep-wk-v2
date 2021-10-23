@@ -22,12 +22,14 @@ interface MetricUnknown {
 interface MetricRecord {
   wkApiKey: string;
   username: string;
-  updatedAt: Date;
+  updatedAt: UnixTimestamp;
   availableReviewCount?: number;
   currentLevel?: number;
   hoursIn: number;
   srsLevels: ItemAggregate;
 }
+
+export type UnixTimestamp = number;
 
 export type Metric = MetricRecord | MetricUnknown;
 
