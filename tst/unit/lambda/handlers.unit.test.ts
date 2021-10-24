@@ -2,7 +2,7 @@ import * as handlers from '@lambda/handlers';
 import * as service from '@lambda/core';
 
 import { APIGatewayProxyEventPathParameters, APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda';
-import { GetMetricsResponse, Metric, SrsStageCounts } from '@lambda/models';
+import { GetMetricsResponse, Metric } from '@lambda/models';
 
 import { mocked } from 'ts-jest/utils';
 
@@ -21,10 +21,10 @@ test('Metric Handler should return a list of metrics as an APIGatewayProxyResult
     currentLevel: 10,
     hoursIn: 500,
     srsLevels: {
-      total: new SrsStageCounts(50, 100, 420, 200, 50, 50, 25, 1, 3, 1),
-      radical: new SrsStageCounts(16, 34, 69, 67, 17, 17, 9, 1, 3, 1),
-      kanji: new SrsStageCounts(17, 33, 175, 67, 17, 17, 8, 0, 0, 0),
-      vocabulary: new SrsStageCounts(17, 33, 176, 66, 16, 16, 8, 0, 0, 0),
+      total: [50, 100, 420, 200, 50, 50, 25, 1, 3, 1],
+      radical: [16, 34, 69, 67, 17, 17, 9, 1, 3, 1],
+      kanji: [17, 33, 175, 67, 17, 17, 8, 0, 0, 0],
+      vocabulary: [17, 33, 176, 66, 16, 16, 8, 0, 0, 0],
     },
     username: 'Muppet1',
   };
@@ -36,10 +36,10 @@ test('Metric Handler should return a list of metrics as an APIGatewayProxyResult
     currentLevel: 10,
     hoursIn: 400,
     srsLevels: {
-      total: new SrsStageCounts(50, 100, 420, 200, 50, 50, 25, 1, 3, 1),
-      radical: new SrsStageCounts(16, 34, 69, 67, 17, 17, 9, 1, 3, 1),
-      kanji: new SrsStageCounts(17, 33, 175, 67, 17, 17, 8, 0, 0, 0),
-      vocabulary: new SrsStageCounts(17, 33, 176, 66, 16, 16, 8, 0, 0, 0),
+      total: [50, 100, 420, 200, 50, 50, 25, 1, 3, 1],
+      radical: [16, 34, 69, 67, 17, 17, 9, 1, 3, 1],
+      kanji: [17, 33, 175, 67, 17, 17, 8, 0, 0, 0],
+      vocabulary: [17, 33, 176, 66, 16, 16, 8, 0, 0, 0],
     },
     username: 'Muppet2',
   };

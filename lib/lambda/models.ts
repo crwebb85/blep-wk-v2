@@ -34,13 +34,10 @@ export type UnixTimestamp = number;
 export type Metric = MetricRecord | MetricUnknown;
 
 export interface ItemAggregate {
-  total: SrsStageCounts<SrsStageCount>;
-  radical: SrsStageCounts<SrsStageCount>;
-  kanji: SrsStageCounts<SrsStageCount>;
-  vocabulary: SrsStageCounts<SrsStageCount>;
+  total: SrsStageCounts;
+  radical: SrsStageCounts;
+  kanji: SrsStageCounts;
+  vocabulary: SrsStageCounts;
 }
 
-type SrsStageCount = 10;
-export class SrsStageCounts<L extends number> extends Array<number> {
-  length: L;
-}
+export type SrsStageCounts = number[];

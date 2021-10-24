@@ -9,15 +9,11 @@ export type MetricEntity = {
 
 export type UnixTimestamp = number;
 
-type SrsStageCount = 10;
-
 export interface ItemAggregateEntity {
-  total: SrsStageCountsEntity<SrsStageCount>;
-  radical: SrsStageCountsEntity<SrsStageCount>;
-  kanji: SrsStageCountsEntity<SrsStageCount>;
-  vocabulary: SrsStageCountsEntity<SrsStageCount>;
+  total: SrsStageCountsEntity;
+  radical: SrsStageCountsEntity;
+  kanji: SrsStageCountsEntity;
+  vocabulary: SrsStageCountsEntity;
 }
 
-export interface SrsStageCountsEntity<L extends number> extends Array<number> {
-  length: L;
-}
+export type SrsStageCountsEntity = number[];

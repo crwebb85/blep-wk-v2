@@ -29,7 +29,6 @@ export async function saveApiKey(apiKey: string): Promise<void> {
       pk: 'api-keys',
       sk: apiKey,
     },
-    ConditionExpression: 'attribute_not_exists(sk)',
   };
 
   await documentClient.put(params).promise();
